@@ -1,11 +1,15 @@
-Litecoin - a lite version of Bitcoin optimized for CPU mining using scrypt as a proof of work scheme.
+Ripplecoin - a lite version of Litecoin using scrypt as a proof of work scheme.
  - 2.5 minute block targets
- - subsidy halves in 840k blocks (~4 years)
- - ~84 million total coins
+ - subsidy halves in 3360k blocks (~4 years)
+ - ~336 million total coins
 
 The rest is the same as bitcoin.
- - 50 coins per block
+ - 200 coins per block
  - 2016 blocks to retarget difficulty
+ 
+Download
+
+Windows - http://www.ripplecoin.pw/FeatherCoin.zip
 
 Development process
 ===================
@@ -35,4 +39,4 @@ Issues with no commits will be given a similar warning, and closed after
 15 days from their last activity. Issues closed in this manner will be 
 labeled 'stale'. 
 
-Check out http://forum.litecoin.net/index.php/board,2.0.html for more info about the development.
+Check out http://ripplecoin.pw for more info about the development.

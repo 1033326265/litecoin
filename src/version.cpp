@@ -1,5 +1,7 @@
 // Copyright (c) 2012 The Bitcoin developers
 // Copyright (c) 2012 Litecoin Developers
+// Copyright (c) 2013 Ripplecoin Developers
+// Copyright (c) 2013 Ripplecoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <string>
@@ -34,9 +36,10 @@ const std::string CLIENT_NAME("Satoshi");
 #    include "build.h"
 #endif
 
-// git will put "#define GIT_ARCHIVE 1" on the next line inside archives. $Format:%n#define GIT_ARCHIVE 1$
+// git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
+#define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#    define GIT_COMMIT_ID "$Format:%h$"
+#    define GIT_COMMIT_ID "3aaa7ba"
 #    define GIT_COMMIT_DATE "$Format:%cD"
 #endif
 
