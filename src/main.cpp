@@ -29,7 +29,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x");
+uint256 hashGenesisBlock("0x34aa5e7be02e140ea4015cfcb897d3db5907f656b0b4c2d2a7714609958b8ed7");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Ripplecoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -832,16 +832,16 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 
 		if(nHeight < 2)
     {
-        nSubsidy = 91600050 * COIN;
+        nSubsidy = 58000050 * COIN;
     }
 
-    nSubsidy >>= (nHeight / 840000);
+    nSubsidy >>= (nHeight / 420000);
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 3.5 * 24 * 60 * 60; // Ripplecoin: 3.5 days
-static const int64 nTargetSpacing = 2.5 * 60; // Ripplecoin: 2.5 minutes
+static const int64 nTargetTimespan = 1.75 * 24 * 60 * 60; // Ripplecoin: 1.75 days
+static const int64 nTargetSpacing = 5 * 60; // Ripplecoin: 5 minutes
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -1975,7 +1975,7 @@ bool LoadBlockIndex(bool fAllowNew)
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0x4d078ec2e899c03a9b32d6197064bd37b73a2304ac4e1187626cb7749bfd60da");
+        hashGenesisBlock = uint256("0x");
     }
 
     //
@@ -1995,14 +1995,14 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis Block:
-        // CBlock(hash=12a765e31ffd4059bada, PoW=0000050c34a64b415b6b, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=97ddfbbae6, nTime=1317972665, nBits=1e0ffff0, nNonce=2084524493, vtx=1)
-        //   CTransaction(hash=97ddfbbae6, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        //     CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536)
-        //     CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-        //   vMerkleTree: 97ddfbbae6
+		//CBlock(hash=34aa5e7be02e140ea401, PoW=00000ed309acf5b459b8, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=7dec561414, nTime=1372229358, nBits=1e0ffff0, nNonce=434650, vtx=1)
+		//  CTransaction(hash=7dec561414, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+		//    CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d01043e596f75747562652032342f4a756e2f3230313320414d4420526164656f6ee284a22047726170686963732050726573656e74733a20546865204669786572)
+		//    CTxOut(error)
+		//  vMerkleTree: 7dec561414 
 
         // Genesis block
-        const char* pszTimestamp = "IGN 18/Jun/2013 EA says Frostbite 3 Optimization Not Exclusive to AMD";
+        const char* pszTimestamp = "Youtube 24/Jun/2013 AMD Radeon™ Graphics Presents: The Fixer";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2014,9 +2014,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 0;
+        block.nTime    = 1372229358;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 0;
+        block.nNonce   = 434650;
 
         if (fTestNet)
         {
@@ -2028,10 +2028,10 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("%s\n", block.GetHash().ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x3fe41da72974785bfbc873e5e907bde837279708ab28edd1a71ed65d0ddaf223"));
+        assert(block.hashMerkleRoot == uint256("0x7dec561414c5f1a551f700253422f1ed277a0b6a9fb4d958943e9e51008e8347"));
 
         // If genesis block hash does not match, then generate new genesis hash.
-        if (true && block.GetHash() != hashGenesisBlock)
+        if (false && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're

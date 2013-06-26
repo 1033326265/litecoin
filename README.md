@@ -1,15 +1,9 @@
 Ripplecoin - a lite version of Litecoin using scrypt as a proof of work scheme.
- - 2.5 minute block targets
- - subsidy halves in 3360k blocks (~4 years)
- - ~336 million total coins
-
-The rest is the same as bitcoin.
- - 200 coins per block
- - 2016 blocks to retarget difficulty
- 
-Download
-
-Windows - http://www.ripplecoin.pw/FeatherCoin.zip
+ - 5 minute block targets
+ - subsidy halves in 420k blocks (~4 years)
+ - ~100 million total coins
+ - 50 coins per block
+ - 504 blocks to retarget difficulty
 
 Development process
 ===================
